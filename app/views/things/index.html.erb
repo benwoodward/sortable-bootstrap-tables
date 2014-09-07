@@ -1,27 +1,36 @@
-<h1>Listing things</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @things.each do |thing| %>
+<h1>Sortable Bootstrap Tables in Rails (drag &amp; drop reordering)</h1>
+<h5>
+  <%= link_to 'http://benw.me/posts/sortable-bootstrap-tables/', 'http://benw.me/posts/sortable-bootstrap-tables/' %>
+</h5>
+<div class="panel panel-default">
+  <table class="table table-bordered table-striped">
+    <thead>
       <tr>
-        <td><%= thing.title %></td>
-        <td><%= thing.description %></td>
-        <td><%= link_to 'Show', thing %></td>
-        <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
-        <td><%= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>
+          Title
+        </th>
+        <th>
+          Description
+        </th>
+        <th>&nbsp;</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Thing', new_thing_path %>
+    </thead>
+    <tbody>
+      <% @things.each do |thing| %>
+        <tr>
+          <td>
+            <%= thing.title %>
+          </td>
+          <td>
+            <%= thing.description.truncate(20) %>
+          </td>
+          <td>
+            <%= link_to 'show', admin_thing_path(thing), :class => 'btn' %>
+            <%= link_to 'edit', edit_admin_thing_path(thing), :class => 'btn btn-primary' %>
+            <%= link_to 'destroy', admin_thing_path(thing), method: :delete, confirm: "Are you sure?", :class => 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
