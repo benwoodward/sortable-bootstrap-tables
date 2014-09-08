@@ -12,6 +12,14 @@ class ThingsController < ApplicationController
   def show
   end
 
+  def update_row_order
+    @thing = Thing.find(thing_params[:thing_id])
+    @thing.row_order_position = thing_params[:row_order_position]
+    @thing.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_thing
@@ -20,6 +28,6 @@ class ThingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thing_params
-      params.require(:thing).permit(:title, :description, :row_order_position)
+      params.require(:thing).permit(:thing_id, :title, :description, :row_order_position)
     end
 end

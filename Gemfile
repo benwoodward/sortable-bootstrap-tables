@@ -41,3 +41,4 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'ranked-model'
+gem 'jquery-ui-rails'

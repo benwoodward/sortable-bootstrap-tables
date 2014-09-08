@@ -3,7 +3,7 @@
   <%= link_to 'http://benw.me/posts/sortable-bootstrap-tables/', 'http://benw.me/posts/sortable-bootstrap-tables/' %>
 </h5>
 <div class="panel panel-default">
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered table-striped" id="sortable">
     <thead>
       <tr>
         <th>
@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       <% @things.each do |thing| %>
-        <tr>
+        <tr data-item-id=<%= "#{thing.id}" %> class="item">
           <td>
             <%= thing.title %>
           </td>
