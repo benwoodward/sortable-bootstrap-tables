@@ -12,7 +12,6 @@
         <th>
           Description
         </th>
-        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -22,12 +21,7 @@
             <%= thing.title %>
           </td>
           <td>
-            <%= thing.description.truncate(20) %>
-          </td>
-          <td>
-            <%= link_to 'show', admin_thing_path(thing), :class => 'btn' %>
-            <%= link_to 'edit', edit_admin_thing_path(thing), :class => 'btn btn-primary' %>
-            <%= link_to 'destroy', admin_thing_path(thing), method: :delete, confirm: "Are you sure?", :class => 'btn btn-danger' %>
+            <%= link_to 'show', thing_path(thing), :class => 'btn btn-default pull-right' %>
           </td>
         </tr>
       <% end %>
