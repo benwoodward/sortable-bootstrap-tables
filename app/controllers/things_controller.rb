@@ -4,7 +4,7 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.json
   def index
-    @things = Thing.all
+    @things = Thing.rank(:row_order).all
   end
 
   # GET /things/1
@@ -20,6 +20,6 @@ class ThingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thing_params
-      params.require(:thing).permit(:title, :description)
+      params.require(:thing).permit(:title, :description, :row_order_position)
     end
 end
